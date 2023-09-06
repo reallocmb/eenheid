@@ -1,0 +1,34 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-std=gnu89",
+      "-g",
+      "-DDEBUG",
+      "-c",
+      "-o",
+      "obj/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/mb/ws/c/unicki_rewrite",
+    "file": "/home/mb/ws/c/unicki_rewrite/src/main.c",
+    "output": "/home/mb/ws/c/unicki_rewrite/obj/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-Wall",
+      "-std=gnu89",
+      "-g",
+      "-DDEBUG",
+      "-c",
+      "-o",
+      "obj/unicki/u_test.o",
+      "src/unicki/u_test.c"
+    ],
+    "directory": "/home/mb/ws/c/unicki_rewrite",
+    "file": "/home/mb/ws/c/unicki_rewrite/src/unicki/u_test.c",
+    "output": "/home/mb/ws/c/unicki_rewrite/obj/unicki/u_test.o"
+  }
+]
