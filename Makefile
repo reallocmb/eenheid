@@ -4,7 +4,7 @@ extern_lib =
 
 compiler = gcc $(develop_flags)
 
-version = gnu89
+version = gnu99
 
 release_flags = -std=$(version) -O3
 

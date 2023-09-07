@@ -11,9 +11,9 @@
       "obj/main.o",
       "src/main.c"
     ],
-    "directory": "/home/mb/ws/c/unicki_rewrite",
-    "file": "/home/mb/ws/c/unicki_rewrite/src/main.c",
-    "output": "/home/mb/ws/c/unicki_rewrite/obj/main.o"
+    "directory": "/home/mb/ws/c/eenheid",
+    "file": "/home/mb/ws/c/eenheid/src/main.c",
+    "output": "/home/mb/ws/c/eenheid/obj/main.o"
   },
   {
     "arguments": [
@@ -27,8 +27,8 @@
       "obj/unicki/u_test.o",
       "src/unicki/u_test.c"
     ],
-    "directory": "/home/mb/ws/c/unicki_rewrite",
-    "file": "/home/mb/ws/c/unicki_rewrite/src/unicki/u_test.c",
-    "output": "/home/mb/ws/c/unicki_rewrite/obj/unicki/u_test.o"
+    "directory": "/home/mb/ws/c/eenheid",
+    "file": "/home/mb/ws/c/eenheid/src/unicki/u_test.c",
+    "output": "/home/mb/ws/c/eenheid/obj/unicki/u_test.o"
   }
 ]

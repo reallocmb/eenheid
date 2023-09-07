@@ -1,4 +1,4 @@
-#include"unicki/unicki.h"
+#include"eenheid/eenheid.h"
 #include<stddef.h>
 
 int sum(int x, int y)
@@ -6,23 +6,25 @@ int sum(int x, int y)
     return x + y;
 }
 
-TEST_INIT;
+__EENHEID_INIT__
 
-TEST(calculation, sum)
+SUITE(calculation sum)
 {
-    int s = sum(8, 7);
-    unicki_assert((s == 15));
+    TEST(add)
+    {
+        int s = sum(17, 18);
+        eenheid_assert_int32(36, s);
+        eenheid_assert_int32(35, s);
+        eenheid_assert_int32(6, s);
+        TEST_END
+    }
+    TEST(max int)
+    {
+        eenheid_assert_str("matthias", "mattihas1");
+        TEST_END
+    }
 }
 
-TEST(calculation, genau)
-{
-    unicki_assert(15 == 15);
-    unicki_assert(20 == 19);
-}
+__EENHEID_END__
 
-TEST(test_und_so, ganzorke)
-{
-    unicki_assert(17 == 18);
-}
 
-TEST_END;
