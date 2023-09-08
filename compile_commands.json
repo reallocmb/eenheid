@@ -1,9 +1,9 @@
 [
   {
     "arguments": [
-      "/usr/bin/gcc",
+      "/usr/sbin/gcc",
       "-Wall",
-      "-std=gnu89",
+      "-std=gnu99",
       "-g",
       "-DDEBUG",
       "-c",
@@ -11,24 +11,24 @@
       "obj/main.o",
       "src/main.c"
     ],
-    "directory": "/home/mb/ws/c/eenheid",
-    "file": "/home/mb/ws/c/eenheid/src/main.c",
-    "output": "/home/mb/ws/c/eenheid/obj/main.o"
+    "directory": "/home/mb/ws/eenheid",
+    "file": "/home/mb/ws/eenheid/src/main.c",
+    "output": "/home/mb/ws/eenheid/obj/main.o"
   },
   {
     "arguments": [
-      "/usr/bin/gcc",
+      "/usr/sbin/gcc",
       "-Wall",
-      "-std=gnu89",
+      "-std=gnu99",
       "-g",
       "-DDEBUG",
       "-c",
       "-o",
-      "obj/unicki/u_test.o",
-      "src/unicki/u_test.c"
+      "obj/eenheid/e_test.o",
+      "src/eenheid/e_test.c"
     ],
-    "directory": "/home/mb/ws/c/eenheid",
-    "file": "/home/mb/ws/c/eenheid/src/unicki/u_test.c",
-    "output": "/home/mb/ws/c/eenheid/obj/unicki/u_test.o"
+    "directory": "/home/mb/ws/eenheid",
+    "file": "/home/mb/ws/eenheid/src/eenheid/e_test.c",
+    "output": "/home/mb/ws/eenheid/obj/eenheid/e_test.o"
   }
 ]

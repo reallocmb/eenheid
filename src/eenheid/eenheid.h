@@ -9,14 +9,14 @@
 #define EENHEID_VERSION_MINOR 0
 #define EENHEID_VERSION_PATCH 0
 
-
+/* ASSERT Functions */
 void eenheid_assert(EenheidTest *eenheid_test, bool condition, char *file, uint32_t line);
 void eenheid_assert_str(EenheidTest *eenheid_test, char *expected, char *received, char *file, int32_t line);
 void eenheid_assert_int32(EenheidTest *eenheid_test, int8_t expected, int8_t received, char *file, int32_t line);
 
 #define eenheid_assert(condition) eenheid_assert(&eenheid_test, condition, __FILE__, __LINE__)
-#define eenheid_assert_int32(expected, received) eenheid_assert_int32(&eenheid_test, expected, received, __FILE__, __LINE__)
 #define eenheid_assert_str(expected, received) eenheid_assert_str(&eenheid_test, expected, received, __FILE__, __LINE__)
+#define eenheid_assert_int32(expected, received) eenheid_assert_int32(&eenheid_test, expected, received, __FILE__, __LINE__)
 
 void eenheid_title_print(void);
 void eenheid_test_create(EenheidTest *eenheid_test, char *suite, char *test);
