@@ -1,7 +1,7 @@
 [
   {
     "arguments": [
-      "/usr/sbin/gcc",
+      "/usr/bin/gcc",
       "-Wall",
       "-std=gnu99",
       "-g",
@@ -11,13 +11,13 @@
       "obj/main.o",
       "src/main.c"
     ],
-    "directory": "/home/mb/ws/eenheid",
-    "file": "/home/mb/ws/eenheid/src/main.c",
-    "output": "/home/mb/ws/eenheid/obj/main.o"
+    "directory": "/home/mb/ws/c/eenheid",
+    "file": "/home/mb/ws/c/eenheid/src/main.c",
+    "output": "/home/mb/ws/c/eenheid/obj/main.o"
   },
   {
     "arguments": [
-      "/usr/sbin/gcc",
+      "/usr/bin/gcc",
       "-Wall",
       "-std=gnu99",
       "-g",
@@ -27,8 +27,8 @@
       "obj/eenheid/e_test.o",
       "src/eenheid/e_test.c"
     ],
-    "directory": "/home/mb/ws/eenheid",
-    "file": "/home/mb/ws/eenheid/src/eenheid/e_test.c",
-    "output": "/home/mb/ws/eenheid/obj/eenheid/e_test.o"
+    "directory": "/home/mb/ws/c/eenheid",
+    "file": "/home/mb/ws/c/eenheid/src/eenheid/e_test.c",
+    "output": "/home/mb/ws/c/eenheid/obj/eenheid/e_test.o"
   }
 ]

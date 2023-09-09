@@ -8,7 +8,7 @@ version = gnu99
 
 release_flags = -std=$(version) -O3
 
-develop_flags = -Wall -std=$(version) -g -DDEBUG
+develop_flags = -Wall -std=$(version) -g
 
 source_dir = src
 object_dir = obj
