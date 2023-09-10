@@ -1,4 +1,4 @@
-program = unicki
+program = eenheid
 
 extern_lib =
 
@@ -56,6 +56,14 @@ install_dir = /usr/bin
 install: compiler := gcc $(release_flags)
 install: clean all
 	sudo cp $(binary) $(install_dir)
+
+install_library: compiler := gcc $(release_flags)
+install_library: clean all
+	mkdir -p lib
+	ar rcs ./lib/libeenheid.a ./obj/eenheid/e_test.o
+	sudo cp ./src/eenheid/eenheid_internal.h /usr/include
+	sudo cp ./src/eenheid/eenheid.h /usr/include
+	sudo cp ./lib/libeenheid.a /usr/lib
 
 release: 
 	compiler = gcc $(release_flags)
