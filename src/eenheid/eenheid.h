@@ -26,7 +26,7 @@ void ennheid_assert_uint32(EenheidTest *eenheid_test, uint32_t received, uint32_
 #define eenheid_assert_uint32(received, expected) ennheid_assert_uint32(&eenheid_test, received, expected, __FILE__, __LINE__)
 
 void eenheid_title_print(void);
-void eenheid_test_create(EenheidTest *eenheid_test, char *suite, char *test);
+void eenheid_test_create(EenheidTest *eenheid_test, char *test);
 void eenheid_test_clean(EenheidTest *eenheid_test);
 void eenheid_stats_print(EenheidTest *eenheid_test);
 void eenheid_suite_create(EenheidTest *eenheid_test, char *suite);
@@ -55,7 +55,7 @@ int main(void) \
     eenheid_suite_clean(&eenheid_test); \
 
 #define TEST(test) \
-    eenheid_test_create(&eenheid_test, "", #test); \
+    eenheid_test_create(&eenheid_test, #test); \
     eenheid_test.pending_count++; \
 
 #define TEST_END \

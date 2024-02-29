@@ -18,12 +18,12 @@ void eenheid_title_print(void)
 {
     const char *TITLE = 
         "\x1B[32m"
-        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\n"
-        "\u258F                    \u2595\n"
-        "\u258F     "COLOR_DEFAULT"EENHEID"COLOR_GREEN"        \u2595\n"
-        "\u258F     "COLOR_DEFAULT VERSION_FORMAT COLOR_GREEN"         \u2595\n"
-        "\u258F                    \u2595\n"
-        "\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\n"
+        "▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n"
+        "▏                    ▕\n"
+        "▏     "COLOR_DEFAULT"EENHEID"COLOR_GREEN"        ▕\n"
+        "▏     "COLOR_DEFAULT VERSION_FORMAT COLOR_GREEN"         ▕\n"
+        "▏                    ▕\n"
+        "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n"
         "\x1B[0m";
 
     printf("%s", TITLE);
@@ -157,7 +157,7 @@ void ennheid_assert_uint32(EenheidTest *eenheid_test, uint32_t received, uint32_
     }
 }
 
-void eenheid_test_create(EenheidTest *eenheid_test, char *suite, char *test)
+void eenheid_test_create(EenheidTest *eenheid_test, char *test)
 {
     eenheid_test->test_old = eenheid_test->test;
     eenheid_test->test = test;
@@ -170,12 +170,12 @@ void eenheid_test_clean(EenheidTest *eenheid_test)
     {
         if (eenheid_test->status == PASSED)
         {
-            eenheid_test->status_sign = "\x1b[32m\u2714\x1b[0m";
+            eenheid_test->status_sign = "\x1b[32m✔\x1b[0m";
             eenheid_test->passed_count++;
         }
         else if (eenheid_test->status == FAILED)
         {
-            eenheid_test->status_sign = "\x1b[31m\u2718\x1b[0m";
+            eenheid_test->status_sign = "\x1b[31m✘\x1b[0m";
             eenheid_test->failed_count++;
         }
         else

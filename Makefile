@@ -2,13 +2,11 @@ program = eenheid
 
 extern_lib =
 
-compiler = gcc $(develop_flags)
-
-version = gnu99
+compiler = c89 $(develop_flags)
 
 release_flags = -std=$(version) -O3
 
-develop_flags = -Wall -std=$(version) -g
+develop_flags = -Wall -g
 
 source_dir = src
 object_dir = obj
