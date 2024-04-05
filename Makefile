@@ -2,17 +2,17 @@ program = eenheid
 
 extern_lib =
 
-compiler = c89 $(develop_flags)
+compiler = gcc $(develop_flags)
 
-release_flags = -std=$(version) -O3
-
-develop_flags = -Wall -g
+develop_flags = -Wall -Wextra -pedantic -pedantic-errors -g
+release_flags = -O3 -DRELEASE
 
 source_dir = src
 object_dir = obj
 binary_dir = bin
+tests_dir = tests
 
-source_sub = $(wildcard src/*/*.c)
+source_sub = $(wildcard $(source_dir)/*/*.c)
 object_sub = $(patsubst $(source_dir)/%.c,$(object_dir)/%.o,$(source_sub))
 
 source = $(wildcard $(source_dir)/*.c)
@@ -22,16 +22,16 @@ object_all = $(object) $(object_sub)
 
 binary = $(binary_dir)/$(program)
 
-sub_dirs = $(filter-out $(wildcard src/*.c) $(wildcard src/*.h),$(wildcard src/*))
-objdirs = $(patsubst src/%,obj/%,$(sub_dirs))
+sub_dirs = $(filter-out $(wildcard $(source_dir)/*.c) $(wildcard $(source_dir)/*.h),$(wildcard $(source_dir)/*))
+objdirs = $(patsubst $(source_dir)/%,obj/%,$(sub_dirs))
 
 all: $(objdirs) $(object_all) $(binary)
 
 $(binary): $(object_all)
-	$(compiler) -o $(binary) $(object_all) $(extern_lib)
+	$(compiler) -Llib -o $(binary) $(object_all) $(extern_lib) 
 
 $(object_dir)/%.o: $(source_dir)/%.c
-	$(compiler) -c -o $@ $<
+	$(compiler) -Iinc -c -o $@ $<
 
 $(objdirs):
 	@mkdir -p $@
@@ -47,7 +47,9 @@ clean:
 	rm $(binary) -f
 
 init:
-	mkdir -p $(source_dir) $(object_dir) $(binary_dir)
+	mkdir -p $(source_dir) $(object_dir) $(binary_dir) $(tests_dir)
+	cp ../Makefile.tests $(tests_dir)/Makefile
+	$(MAKE) -C $(tests_dir) init
 
 install_dir = /usr/bin
 
@@ -63,8 +65,11 @@ install_library: clean all
 	sudo cp ./src/eenheid/eenheid.h /usr/include
 	sudo cp ./lib/libeenheid.a /usr/lib
 
-release: 
-	compiler = gcc $(release_flags)
-
 remove:
 	sudo rm $(install_dir)/$(program)
+
+tests: all
+	$(MAKE) -C tests run
+
+bear: clean
+	bear -- make

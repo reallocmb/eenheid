@@ -6,10 +6,16 @@ SUITE(person)
 {
     TEST(person_create_code)
     {
-        eenheid_assert_int32(-1, 15);
         eenheid_assert_str_size("matthiasbrunner", "mattwasauchimmer", 5);
-        TEST_END
+        eenheid_assert_str("brunner", "brunner das auch");
     }
+    TEST_END;
+
+    TEST(was_auch_immer())
+    {
+        eenheid_assert(50 < 60);
+        eenheid_assert_sint(60, 70);
+    } TEST_END;
 }
 
 __EENHEID_END__
