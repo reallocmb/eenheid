@@ -101,7 +101,7 @@ void eenheid_assert_sint(EenheidTest *eenheid_test, s64 received, s64 expected, 
     {
         eenheid_test->status = FAILED;
         char *message_error = malloc((strlen(file) + 11 + 11 + 11 + 1 + 52) * sizeof(*message_error));
-        sprintf(message_error, "\nFILE: %s | LINE: %u -> received: %lli | expected: %lli", file, line, received, expected);
+        sprintf(message_error, "\nFILE: %s | LINE: %u -> received: %li | expected: %li", file, line, received, expected);
         eenheid_test->message_error = realloc(eenheid_test->message_error, (eenheid_test->message_error_offset + strlen(message_error) + 1) * sizeof(char));
         strcpy(eenheid_test->message_error + eenheid_test->message_error_offset, message_error);
         eenheid_test->message_error_offset += strlen(message_error);
@@ -118,7 +118,7 @@ void eenheid_assert_uint(EenheidTest *eenheid_test, u64 received, u64 expected, 
     {
         eenheid_test->status = FAILED;
         char *message_error = malloc((strlen(file) + 11 + 11 + 11 + 1 + 52) * sizeof(*message_error));
-        sprintf(message_error, "\nFILE: %s | LINE: %u -> received: %llu | expected: %llu", file, line, received, expected);
+        sprintf(message_error, "\nFILE: %s | LINE: %u -> received: %lu | expected: %lu", file, line, received, expected);
         eenheid_test->message_error = realloc(eenheid_test->message_error, (eenheid_test->message_error_offset + strlen(message_error) + 1) * sizeof(char));
         strcpy(eenheid_test->message_error + eenheid_test->message_error_offset, message_error);
         eenheid_test->message_error_offset += strlen(message_error);
