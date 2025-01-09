@@ -18,12 +18,12 @@ void eenheid_title_print(void)
 {
     const char *TITLE = 
         "\x1B[32m"
-        "▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁▁\n"
-        "▏                    ▕\n"
-        "▏     "COLOR_DEFAULT"EENHEID"COLOR_GREEN"        ▕\n"
-        "▏     "COLOR_DEFAULT VERSION_FORMAT COLOR_GREEN"         ▕\n"
-        "▏                    ▕\n"
-        "▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔▔\n"
+        "\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\u2581\n"
+        "\u258F                    \u2595\n"
+        "\u258F     "COLOR_DEFAULT"EENHEID"COLOR_GREEN"        \u2595\n"
+        "\u258F     "COLOR_DEFAULT VERSION_FORMAT COLOR_GREEN"         \u2595\n"
+        "\u258F                    \u2595\n"
+        "\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\u2594\n"
         "\x1B[0m";
 
     printf("%s", TITLE);
@@ -93,7 +93,7 @@ void eenheid_assert_str_size(EenheidTest *eenheid_test, char *received, char *ex
     }
 }
 
-void eenheid_assert_sint(EenheidTest *eenheid_test, s64 received, s64 expected, char *file, u32 line)
+void eenheid_assert_int8(EenheidTest *eenheid_test, int8_t received, int8_t expected, char *file, uint32_t line)
 {
     if (received == expected)
         eenheid_test->status = PASSED;
@@ -101,16 +101,15 @@ void eenheid_assert_sint(EenheidTest *eenheid_test, s64 received, s64 expected, 
     {
         eenheid_test->status = FAILED;
         char *message_error = malloc((strlen(file) + 11 + 11 + 11 + 1 + 52) * sizeof(*message_error));
-        sprintf(message_error, "\nFILE: %s | LINE: %u -> received: %li | expected: %li", file, line, received, expected);
+        sprintf(message_error, "\nFILE: %s | LINE: %d -> received: %d | expected: %d", file, line, received, expected);
         eenheid_test->message_error = realloc(eenheid_test->message_error, (eenheid_test->message_error_offset + strlen(message_error) + 1) * sizeof(char));
         strcpy(eenheid_test->message_error + eenheid_test->message_error_offset, message_error);
         eenheid_test->message_error_offset += strlen(message_error);
         free(message_error);
     }
-
 }
 
-void eenheid_assert_uint(EenheidTest *eenheid_test, u64 received, u64 expected, char *file, u32 line)
+void eenheid_assert_int32(EenheidTest *eenheid_test, int32_t received, int32_t expected, char *file, uint32_t line)
 {
     if (received == expected)
         eenheid_test->status = PASSED;
@@ -118,7 +117,7 @@ void eenheid_assert_uint(EenheidTest *eenheid_test, u64 received, u64 expected, 
     {
         eenheid_test->status = FAILED;
         char *message_error = malloc((strlen(file) + 11 + 11 + 11 + 1 + 52) * sizeof(*message_error));
-        sprintf(message_error, "\nFILE: %s | LINE: %u -> received: %lu | expected: %lu", file, line, received, expected);
+        sprintf(message_error, "\nFILE: %s | LINE: %d -> received: %d | expected: %d", file, line, received, expected);
         eenheid_test->message_error = realloc(eenheid_test->message_error, (eenheid_test->message_error_offset + strlen(message_error) + 1) * sizeof(char));
         strcpy(eenheid_test->message_error + eenheid_test->message_error_offset, message_error);
         eenheid_test->message_error_offset += strlen(message_error);
@@ -126,7 +125,39 @@ void eenheid_assert_uint(EenheidTest *eenheid_test, u64 received, u64 expected, 
     }
 }
 
-void eenheid_test_create(EenheidTest *eenheid_test, char *test)
+void eenheid_assert_int64(EenheidTest *eenheid_test, int64_t received, int64_t expected, char *file, uint32_t line)
+{
+    if (received == expected)
+        eenheid_test->status = PASSED;
+    else
+    {
+        eenheid_test->status = FAILED;
+        char *message_error = malloc((strlen(file) + 11 + 11 + 11 + 1 + 52) * sizeof(*message_error));
+        sprintf(message_error, "\nFILE: %s | LINE: %d -> received: %ld | expected: %ld", file, line, received, expected);
+        eenheid_test->message_error = realloc(eenheid_test->message_error, (eenheid_test->message_error_offset + strlen(message_error) + 1) * sizeof(char));
+        strcpy(eenheid_test->message_error + eenheid_test->message_error_offset, message_error);
+        eenheid_test->message_error_offset += strlen(message_error);
+        free(message_error);
+    }
+}
+
+void ennheid_assert_uint32(EenheidTest *eenheid_test, uint32_t received, uint32_t expected, char *file, uint32_t line)
+{
+    if (received == expected)
+        eenheid_test->status = PASSED;
+    else
+    {
+        eenheid_test->status = FAILED;
+        char *message_error = malloc((strlen(file) + 11 + 11 + 11 + 1 + 52) * sizeof(*message_error));
+        sprintf(message_error, "\nFILE: %s | LINE: %u -> received: %u | expected: %u", file, line, received, expected);
+        eenheid_test->message_error = realloc(eenheid_test->message_error, (eenheid_test->message_error_offset + strlen(message_error) + 1) * sizeof(char));
+        strcpy(eenheid_test->message_error + eenheid_test->message_error_offset, message_error);
+        eenheid_test->message_error_offset += strlen(message_error);
+        free(message_error);
+    }
+}
+
+void eenheid_test_create(EenheidTest *eenheid_test, char *suite, char *test)
 {
     eenheid_test->test_old = eenheid_test->test;
     eenheid_test->test = test;
@@ -139,12 +170,12 @@ void eenheid_test_clean(EenheidTest *eenheid_test)
     {
         if (eenheid_test->status == PASSED)
         {
-            eenheid_test->status_sign = "\x1b[32m✔\x1b[0m";
+            eenheid_test->status_sign = "\x1b[32m\u2714\x1b[0m";
             eenheid_test->passed_count++;
         }
         else if (eenheid_test->status == FAILED)
         {
-            eenheid_test->status_sign = "\x1b[31m✘\x1b[0m";
+            eenheid_test->status_sign = "\x1b[31m\u2718\x1b[0m";
             eenheid_test->failed_count++;
         }
         else

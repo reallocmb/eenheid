@@ -14,7 +14,7 @@ SUITE(person)
     TEST(was_auch_immer())
     {
         eenheid_assert(50 < 60);
-        eenheid_assert_sint(60, 70);
+        eenheid_assert_int8(60, 70);
     } TEST_END;
 }
 
